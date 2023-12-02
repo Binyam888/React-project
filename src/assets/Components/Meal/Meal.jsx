@@ -4,7 +4,7 @@ import "./meal.css"
 function Meal() {
 const [list,setList]=useState([])            // feched data frmo the server by catogories
 const [meal,setMeal]=useState([])           // feched data from the server
-const [filtr,setFiltr]=useState([])        // filtered value for showing catg-list
+const [selection,setSelection]=useState([])        // filtered value for showing catg-list
 const [loading,setLoading]=useState(true) // conditional redendering
 const getData = async()=>{
     try{
@@ -61,21 +61,21 @@ const getList = async()=>{
 
     const selectionfn =(data)=>{
         console.log(data)
-    let fileterrr = meal.filter((val)=>{
+    let fileteredValue = meal.filter((val)=>{
         
         return val.strCategory === data
     })
 
     // Added the filtered value to the filter state
 
-    setFiltr(fileterrr)
+    setSelection(fileteredValue)
      
 
      
    
     }
 
-    let selection = filtr.map((val,index)=>{
+    let selections = selection.map((val,index)=>{
         return (
             <li className='selection' key={index}  ><img src={val.strMealThumb} alt="nil"  />
             <h4>{val.strMeal}</h4>
@@ -112,7 +112,8 @@ const getList = async()=>{
      { !loading? mapedItems : <h1>Loading....</h1>} 
  </div>
     <div className="list-catog" style={{textAlign:"center"}}>
-             <h1 style={{margin:"50px 0"}}>Search by catogories</h1>
+             <h1 style={{margin:"50px 0"}}>Choose your dishes</h1>
+             {/* <p>sdhshg</p> */}
         <ul className='catogry-ul'>
             {/* updating catogories list in the dom */}
 
@@ -123,7 +124,7 @@ const getList = async()=>{
 
     <ul >
        
-        {selection }
+        {selections}
     </ul>
 
 </div>

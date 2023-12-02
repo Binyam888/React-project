@@ -76,7 +76,12 @@ color: white;
     height: 250px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+    transition: 0.8s;
 }
 .meals h4{
     margin-top: 10px;
+}
+.meals img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
