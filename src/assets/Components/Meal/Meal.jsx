@@ -27,8 +27,8 @@ const getData = async()=>{
         let itemsNumbers = 10
                 if (index < itemsNumbers){
                     return (
-                        <div style={{padding:"20px",}} key={index}>
-                           <img style={{width:"250px",height:"250px",borderRadius:"10px"}} src={e.strMealThumb} alt="nil" />
+                        <div className='meals' key={index}>
+                           <img  src={e.strMealThumb} alt="nil" />
                            <h4>  {e.strMeal} </h4>
                         </div>
                     )
@@ -55,7 +55,9 @@ const getData = async()=>{
 
     let selection = filtr.map((val,index)=>{
         return (
-            <li className='selection' key={index}  ><img src={val.strMealThumb} alt="nil"  /></li>
+            <li className='selection' key={index}  ><img src={val.strMealThumb} alt="nil"  />
+            <h4>{val.strMeal}</h4>
+            </li>
         )
     })
   
@@ -63,7 +65,7 @@ const getData = async()=>{
     let catogories = meal.map((data,index)=>{
         return(
             
-            <li onClick={()=>{
+            <li key={index} onClick={()=>{
                 selectionfn(data.strCategory)
 
             }} className='ctr-list' >{data.strCategory}</li>

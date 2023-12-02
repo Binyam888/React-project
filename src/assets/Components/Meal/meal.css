@@ -40,10 +40,29 @@ h1,h4{
     align-items: center;
 }
 .selection{
-    margin: 10px;
+    margin: 15px;
+    text-align: center;
 }
 .selection img{
     width: 250px;
     height: 250px;
     border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.selection h4{
+    margin-top: 10px;
+}
+.meals{
+    text-align: center;
+    padding: 20px;
+}
+
+.meals img{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+}
+.meals h4{
+    margin-top: 10px;
 }
