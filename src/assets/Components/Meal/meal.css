@@ -1,3 +1,11 @@
 h1,h4{
     font-family: 'Poppins', sans-serif;
 }
+.ctr-list{
+    margin: 10px;
+    background-color: yellow;
+    padding:10px;
+    color:red;
+    border-radius: 8px;
+    cursor: pointer;
+}
