@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect,useState } from 'react'
 import "./meal.css"
 function Meal() {
-    const [list,setList]=useState([])
+const [list,setList]=useState([])            // feched data frmo the server by catogories
 const [meal,setMeal]=useState([])           // feched data from the server
 const [filtr,setFiltr]=useState([])        // filtered value for showing catg-list
 const [loading,setLoading]=useState(true) // conditional redendering
@@ -28,7 +28,7 @@ const getList = async()=>{
       const response = await fetch(api_key)
       const data = await response.json()
       
-      setList(data.meals) // added fetched data to meal using setMeal
+      setList(data.categories) // added fetched data to meal using setMeal
 
     }catch(error){
         console.error(error)
@@ -84,7 +84,7 @@ const getList = async()=>{
     })
   
    // maped catogoires
-    let catogories = meal.map((data,index)=>{
+    let catogories = list.map((data,index)=>{
         return(
             
             <li key={index} onClick={()=>{
