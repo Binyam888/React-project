@@ -1,4 +1,4 @@
-h1,h4{
+h1,h4,p{
     font-family: 'Poppins', sans-serif;
     color:#4a4a4a;
 }
@@ -84,4 +84,9 @@ color: white;
 .meals img:hover{
     transform: scale(1.1);
     cursor: pointer;
+}
+.dish-header{
+    margin-top: 50px;
+    margin-bottom: 15px;
+
 }
