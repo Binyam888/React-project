@@ -6,7 +6,7 @@ function Dish(props) {
     <div className="texts" >
         <h1>Special Dishes</h1>
    </div>
-   <ul className="fetch" style={{display:"flex",flexWrap:"wrap",justifyContent:"center",listStyle:'none' }}>
+   <ul className="fetch" style={{display:"flex",flexWrap:"wrap",justifyContent:"center",listStyle:'none' ,marginTop:"30px"}}>
           {props.item}
    </ul>
     </div>
