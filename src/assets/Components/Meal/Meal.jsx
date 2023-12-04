@@ -5,6 +5,7 @@ import Dish from './dish'
 import Catogories from './Catogories'
 import Section from './Section'
 function Meal() { 
+    const[clss,setClss]=useState()
 const [list,setList]=useState([])                    // feched data frmo the server by catogories
 const [meal,setMeal]=useState([])                   // feched data from the server
 const [selection,setSelection]=useState([])        // filtered value for showing catg-list
@@ -64,6 +65,7 @@ const getList = async()=>{
     })
 
     const selectionfn =(data)=>{
+        setClss(data)
         console.log(data)
     let fileteredValue = meal.filter((val)=>{
         
@@ -91,11 +93,11 @@ const getList = async()=>{
     let catogories = list.map((data,index)=>{
         return(
             
-            <li key={index} onClick={()=>{
+            <li key={index} className={data.strCategory == clss ? "active" : ""}  onClick={()=>{
                 selectionfn(data.strCategory)
                 console.log(data)
 
-            }} className='ctr-list' >{data.strCategory}</li>
+            }} >{data.strCategory}</li>
         )
 
     })
