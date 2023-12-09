@@ -66,6 +66,7 @@ const getList = async()=>{
 
     const selectionfn =(data)=>{
         setClss(data)
+       
         console.log(data)
     let fileteredValue = meal.filter((val)=>{
         
@@ -74,20 +75,23 @@ const getList = async()=>{
 
     // Added the filtered value to the filter state
 
-    setSelection(fileteredValue)
-     
-
-     
+    
+    console.log(fileteredValue.length)
    
-    }
-
-    let selections = selection.map((val,index)=>{
+    let selections = fileteredValue.map((val,index)=>{
         return (
             <li className='selection' key={index}  ><img src={val.strMealThumb} alt="nil"  />
             <h4>{val.strMeal}</h4>
             </li>
         )
     })
+    setSelection(selections)
+
+     
+   
+    }
+
+   
   
    // maped catogoires
     let catogories = list.map((data,index)=>{
@@ -118,7 +122,7 @@ const getList = async()=>{
 
      {!loading && <Catogories catogery={catogories}/>}
 
-     <Section section={selections}/>
+    {selection.length !=0? <Section section={selection}/> :<h1>no items found</h1>} 
 
 </div>
 
