@@ -4,8 +4,9 @@ import "./meal.css"
 import Dish from './dish'
 import Catogories from './Catogories'
 import Section from './Section'
+import Loder from './Loder'
 function Meal() { 
-    const[clss,setClss]=useState()
+const[clss,setClss]=useState("Beef")
 const [list,setList]=useState([])                    // feched data frmo the server by catogories
 const [meal,setMeal]=useState([])                   // feched data from the server
 const [selection,setSelection]=useState([])        // filtered value for showing catg-list
@@ -17,7 +18,10 @@ const getData = async()=>{
       const data = await response.json()
       
       setMeal(data.meals) // added fetched data to meal using setMeal
-      setLoading(false)
+      
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000);
 
     }catch(error){
         console.error(error)
@@ -34,15 +38,16 @@ const getList = async()=>{
       const data = await response.json()
       
       setList(data.categories) // added fetched data to meal using setMeal
-      setLoading(false)
+
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000);
+     
     }catch(error){
         console.error(error)
     }
 
 }
-
-
-
 
     useEffect(()=>{
     getData()
@@ -50,19 +55,7 @@ const getList = async()=>{
     
     },[])
     
-    let mapedItems = meal.map((e,index)=>{
-        let itemsNumbers = 10
-                if (index < itemsNumbers){
-                    return (
-                        <li className='meals' key={index}>
-                           <img  src={e.strMealThumb} alt="nil" />
-                           <h4>  {e.strMeal} </h4>
-                        </li>
-                    )
-                }
-        
-      
-    })
+   
 
     const selectionfn =(data)=>{
         setClss(data)
@@ -94,17 +87,7 @@ const getList = async()=>{
    
   
    // maped catogoires
-    let catogories = list.map((data,index)=>{
-        return(
-            
-            <li key={index} className={data.strCategory == clss ? "active" : ""}  onClick={()=>{
-                selectionfn(data.strCategory)
-                console.log(data)
-
-            }} >{data.strCategory}</li>
-        )
-
-    })
+    
     
   return (
 <>
@@ -118,11 +101,13 @@ const getList = async()=>{
      {/* updating the fetched data from the dom */}
 
 
-     { !loading? <Dish item={mapedItems}/> : <h1>Loading....</h1>} 
+     { !loading? <Dish meal={meal} setMeal={setMeal}/> :<Loder/>} 
 
-     {!loading && <Catogories catogery={catogories}/>}
+     {!loading && <Catogories list={list} setList={setList} clss={clss} selectionfn={selectionfn}/>}
 
-    {selection.length !=0? <Section section={selection}/> :<h1>no items found</h1>} 
+   {loading || selection.length !=0? <Section section={selection}/> :<Loder/>
+  
+   }
 
 </div>
 

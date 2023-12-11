@@ -1,4 +1,5 @@
 import React from 'react'
+import { Page } from './Page'
 
 function Section(props) {
   return (
@@ -7,10 +8,11 @@ function Section(props) {
 
 <ul >
    
-    {props.section}
+    {props.section.slice(0,10)}
 </ul>
 
 </div>
+     {!props.section && <Page/>}  
     </div>
   )
 }
