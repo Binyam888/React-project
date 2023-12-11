@@ -1,16 +1,20 @@
 import React from 'react'
 import { useEffect,useState } from 'react'
 import "./meal.css"
-import Dish from './dish'
-import Catogories from './Catogories'
+import Dish from './SpecialDishes'
+
 import Section from './Section'
 import Loder from './Loder'
+// import OneDish from './OneDish'
 function Meal() { 
-const[clss,setClss]=useState("Beef")
+
 const [list,setList]=useState([])                    // feched data frmo the server by catogories
 const [meal,setMeal]=useState([])                   // feched data from the server
-const [selection,setSelection]=useState([])        // filtered value for showing catg-list
 const [loading,setLoading]=useState(true)         // conditional redendering
+const[singleitem,setSingleItem]=useState([])     //  feching data for single dish-item
+
+// feching data
+
 const getData = async()=>{
     try{
       const api_key ="https://www.themealdb.com/api/json/v1/1/search.php?f=c"  
@@ -47,54 +51,45 @@ const getList = async()=>{
         console.error(error)
     }
 
+
+   
+
+}
+
+
+// feching data for single dish Item
+const singleItem = async()=>{
+    try{
+        const api_url ="https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"
+        const response = await fetch(api_url)
+        const result = await response.json()
+        setSingleItem(result.meals)
+
+    }
+    catch(error){
+    console.log(error)
+
+    }
+
+     //useEffect hook
+
 }
 
     useEffect(()=>{
     getData()
     getList()
+    singleItem()
     
     },[])
     
-   
+   // filtering catogories to display selection
 
-    const selectionfn =(data)=>{
-        setClss(data)
-       
-        console.log(data)
-    let fileteredValue = meal.filter((val)=>{
-        
-        return val.strCategory === data
-    })
-
-    // Added the filtered value to the filter state
-
-    
-    console.log(fileteredValue.length)
-   
-    let selections = fileteredValue.map((val,index)=>{
-        return (
-            <li className='selection' key={index}  ><img src={val.strMealThumb} alt="nil"  />
-            <h4>{val.strMeal}</h4>
-            </li>
-        )
-    })
-    setSelection(selections)
-
-     
-   
-    }
-
-   
   
-   // maped catogoires
     
     
   return (
+
 <>
-
-
-
-
 
 <div className="container"style={{marginTop:"50px"}} >
    
@@ -103,11 +98,10 @@ const getList = async()=>{
 
      { !loading? <Dish meal={meal} setMeal={setMeal}/> :<Loder/>} 
 
-     {!loading && <Catogories list={list} setList={setList} clss={clss} selectionfn={selectionfn}/>}
-
-   {loading || selection.length !=0? <Section section={selection}/> :<Loder/>
-  
-   }
+    
+    
+     {!loading && < Section  singleitem={singleitem} list={list} setList={setList} meal={meal} setSingleItem={setSingleItem}/> }
+   
 
 </div>
 

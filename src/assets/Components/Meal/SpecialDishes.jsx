@@ -1,6 +1,6 @@
 import React from 'react'
 import "./meal.css"
-function Dish(props) {
+function SpecialDishes(props) {
   
   let mapedItems = props.meal.map((e,index)=>{
     let itemsNumbers = 10
@@ -11,8 +11,7 @@ function Dish(props) {
                        <h4>  {e.strMeal} </h4>
                     </li>
                 )
-            }
-    
+            }  
   
 })
 
@@ -30,4 +29,4 @@ function Dish(props) {
   )
 }
 
-export default Dish
+export default SpecialDishes
