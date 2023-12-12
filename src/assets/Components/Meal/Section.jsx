@@ -17,8 +17,11 @@ function Section(props) {
 
 
 let indexOfLastDish  = currentpage * itemspage
+// 1* 4 = 4
+// 2 * 4 = 8
 let indexOfFirstDish = indexOfLastDish - itemspage
-
+// 4 - 4 = 0
+// 8 - 4 = 4
 
   const{singleitem,list,meal,setList,setSingleItem}=props
 
