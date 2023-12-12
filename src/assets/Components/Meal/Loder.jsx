@@ -7,9 +7,10 @@ function Loder() {
     // const[state,setState]=useState()
  
   return (
-    <div className='loader' style={{display:"flex",justifyContent:"center",marginBottom:"50px",}}>
+    <div className='loader' style={{display:"flex",justifyContent:"center",alignItems:"center",marginTop:"400px", }}>
  
-   <BallTriangle
+ <div className="small-part">
+ <BallTriangle
                 height={100}
                 width={100}
                 radius={5}
@@ -18,6 +19,9 @@ function Loder() {
                 wrapperClass={{}}
                 wrapperStyle=""
                 visible={true}/>
+ </div>
+ 
+                
     </div>
   )
 }

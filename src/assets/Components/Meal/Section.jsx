@@ -1,8 +1,9 @@
 import React ,{useState} from 'react'
-import { Page } from './Page'
+
 import Catogories from './Catogories'
 import OneDish from './OneDish'
 import Empty from './Empty'
+import Pagination from './Pagination'
 
 function Section(props) {
 
@@ -45,6 +46,10 @@ setSelection(fileteredValue)
       { singleitem !=0 || selection.length !=0 ? selection :<Empty/>}
   
 </ul>
+     {/* pagination */}
+
+
+    <Pagination length={selection.length}/>
       
     </div>
   )

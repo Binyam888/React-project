@@ -5,6 +5,7 @@ import Dish from './SpecialDishes'
 
 import Section from './Section'
 import Loder from './Loder'
+import Hero from '../Hero/Hero'
 // import OneDish from './OneDish'
 function Meal() { 
 
@@ -90,6 +91,7 @@ const singleItem = async()=>{
   return (
 
 <>
+    {!loading && <Hero/>}
 
 <div className="container"style={{marginTop:"50px"}} >
    
