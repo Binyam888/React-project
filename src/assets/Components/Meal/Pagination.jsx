@@ -1,17 +1,17 @@
-import { useState } from 'react'
+
 import React  from 'react'
 import { LineWave } from 'react-loader-spinner'
 
 function Pagination(props) {
     const selectionLength =[]
-    const [active,setActive]=useState()
+   
 
    const changePage=(data)=>{
 
     console.log("demooooooooooooooooo",data)
 //    let curentId=e.target.id
 // props.setCurentPage( curentId)
-setActive(data)
+props.setActive(data)
    }
 
     for(let i=1;i<= Math.ceil(props.selection.length/props.itemspage) ;i++){
@@ -25,7 +25,7 @@ setActive(data)
             let curentId=e.target.id
             props.setCurentPage( curentId)
             changePage(curentId)
-        }}  className={item == active ?"pagination-li active" :"pagination-li"}><h4>{item}</h4></li>
+        }}  className={item == props.active ?"pagination-li active" :"pagination-li"}><h4>{item}</h4></li>
     )
 
     })

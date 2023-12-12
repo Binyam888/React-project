@@ -1,13 +1,14 @@
 import React from 'react'
 
 function Catogories(props) {
-  const{clss,list,selectionfn}=props
+  const{clss,list,selectionfn,}=props
   let catogery = list.map((data,index)=>{
     return(
         
         <li key={index} className={data.strCategory == clss ? "active" : ""}  onClick={()=>{
+          
             selectionfn(data.strCategory)
-            console.log(data)
+            
 
         }} >{data.strCategory}</li>
     )
