@@ -18,7 +18,7 @@ function OneDish(props) {
   return (
     <div className='container' >
         <ul style={{display:"flex",flexWrap:"wrap",listStyle:"none",justifyContent:"center"}}>
-            {items.slice(0,8)}
+            {items.slice(0,4)}
         </ul>
 
     </div>

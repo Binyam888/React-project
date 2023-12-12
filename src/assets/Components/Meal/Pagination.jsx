@@ -3,20 +3,26 @@ import { LineWave } from 'react-loader-spinner'
 
 function Pagination(props) {
     const selectionLength =[]
-    for(let i=1;i<=props.length;i++){
+
+   const changePage=(e)=>{
+   let curentId=e.target.id
+props.setCurentPage( curentId)
+   }
+
+    for(let i=1;i<= Math.ceil(props.selection.length/props.itemspage) ;i++){
         console.log(i)
         selectionLength.push(i)
     }
-  const slength=  selectionLength.map((item)=>{
+  const slength =  selectionLength.map((item)=>{
 
     return (
-        <li  className="pagination-li"><h4>{item}</h4></li>
+        <li id={item} onClick={changePage}  className="pagination-li"><h4>{item}</h4></li>
     )
 
     })
   return (
     <section>
-        <ul style={{display:"flex",listStyle:"none" ,justifyContent:"center"} }>
+        <ul style={{display:"flex",listStyle:"none" ,justifyContent:"center",flexWrap:"wrap"} }>
             {slength}
         </ul>
     </section>
