@@ -1,6 +1,9 @@
-h1,h4,p{
+h1,p{
     font-family: 'Poppins', sans-serif;
     color:#4a4a4a;
+}
+h4{
+    font-family: 'Poppins', sans-serif;  
 }
 .catogry-ul li{
     margin: 10px;
@@ -107,4 +110,9 @@ color: white;
     background-color: #4a4a4a94;
     color: white !important;
     cursor: pointer;
+}
+
+.pagination-li .active{
+    background-color: #4a4a4a94; 
+    color: aliceblue !important;
 }
