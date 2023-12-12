@@ -9,8 +9,9 @@ function Section(props) {
 
   const [selection,setSelection]=useState([])   
   const [clss,setClss]=useState("Seafood")
-  const  [itemspage,setItemsPage]=useState(4)
+  
   const [currentpage,setCurentPage]=useState(1)
+  const  [itemspage,setItemsPage]=useState(4)
 
 
 
