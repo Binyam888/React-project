@@ -9,6 +9,15 @@ function Section(props) {
 
   const [selection,setSelection]=useState([])   
   const [clss,setClss]=useState("Seafood")
+  const  [itemspage,setItemsPage]=useState(4)
+  const [currentpage,setCurentPage]=useState(1)
+
+
+
+let indexOfLastDish  = currentpage * itemspage
+let indexOfFirstDish = indexOfLastDish - itemspage
+
+
   const{singleitem,list,meal,setList,setSingleItem}=props
 
   const selectionfn =(data)=>{
@@ -30,6 +39,7 @@ let fileteredValue = meal.filter((val)=>{
 setSelection(fileteredValue)
   
  }
+ const filteredDish =selection.slice(indexOfFirstDish,indexOfLastDish)
 
 
   return (
@@ -43,13 +53,16 @@ setSelection(fileteredValue)
       <Catogories list={list} setList={setList} clss={clss} selectionfn={selectionfn}/>
        <OneDish singleitem={singleitem} />
       <ul style={{display:"flex",flexWrap:"wrap",justifyContent:"center",listStyle:"none"}}>
-      { singleitem !=0 || selection.length !=0 ? selection :<Empty/>}
+      { singleitem !=0 || selection.length !=0 ? filteredDish :<Empty/>}
   
 </ul>
      {/* pagination */}
 
 
-    <Pagination length={selection.length}/>
+    { selection.length >4 && <Pagination selection={selection}
+        setCurentPage={setCurentPage}
+        itemspage={itemspage}
+    />}
       
     </div>
   )
