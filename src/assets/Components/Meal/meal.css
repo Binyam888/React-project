@@ -117,3 +117,31 @@ color: white;
     background-color: #4a4a4a94; 
     color: aliceblue !important;
 }
+.favorite-dish{
+   /* position:absolute; */
+    /* height: 500px;  */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* margin-left: 800px; */
+    border-radius: 10px;
+
+}
+.favorite-dish img{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    margin: 20px;
+}
+.close-btn{
+
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+   
+}

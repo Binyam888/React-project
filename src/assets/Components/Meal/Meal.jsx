@@ -6,6 +6,7 @@ import Dish from './SpecialDishes'
 import Section from './Section'
 import Loder from './Loder'
 import Hero from '../Hero/Hero'
+
 // import OneDish from './OneDish'
 function Meal() { 
 
@@ -13,6 +14,7 @@ const [list,setList]=useState([])                    // feched data frmo the ser
 const [meal,setMeal]=useState([])                   // feched data from the server
 const [loading,setLoading]=useState(true)         // conditional redendering
 const[singleitem,setSingleItem]=useState([])     //  feching data for single dish-item
+
 
 // feching data
 
@@ -83,7 +85,7 @@ const singleItem = async()=>{
     
     },[])
     
-   // filtering catogories to display selection
+   // favorite dishes funtion 
 
   
     
@@ -98,13 +100,13 @@ const singleItem = async()=>{
      {/* updating the fetched data from the dom */}
 
 
-     { !loading? <Dish meal={meal} setMeal={setMeal}/> :<Loder/>} 
+     { !loading? <Dish meal={meal} setMeal={setMeal}  /> :<Loder/>} 
 
     
     
      {!loading && < Section  singleitem={singleitem} list={list} setList={setList} meal={meal} setSingleItem={setSingleItem}/> }
    
-
+      
 </div>
 
 </>
